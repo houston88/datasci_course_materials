@@ -56,7 +56,7 @@ def main():
                     tweetScore += scores[wordLower]
                     #print 'Word: ' + wordLower + ' Sentiment score: ' + str(scores[word])
                     
-        print tweetScore
+        print float(tweetScore)
             
         #count = count + 1
         #if (count > 100):
