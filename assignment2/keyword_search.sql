@@ -1,4 +1,4 @@
--- answer still not correct, must be close though
+-- this worked, just had to turn in top similarity number
 select a.docid, b.docid, a.term, b.term, sum(a.count * b.count) as similarity
 from frequency a, 
 (
@@ -13,13 +13,13 @@ group by a.docid
 order by similarity desc
 
 -- I think this is basically the similar, yields higher counts, still not correct
-select a.docid, a.term, b.term, sum(a.count*b.count) as mCount
-from frequency a, frequency b
-where (a.term = "washington" or a.term = "taxes" or a.term ="treasury")
-    and (b.term = "washington" or b.term = "taxes" or b.term ="treasury")
-    and a.term = b.term and a.docid != b.docid
-group by a.docid
-order by mCount desc
+--select a.docid, a.term, b.term, sum(a.count*b.count) as mCount
+--from frequency a, frequency b
+--where (a.term = "washington" or a.term = "taxes" or a.term ="treasury")
+--    and (b.term = "washington" or b.term = "taxes" or b.term ="treasury")
+--    and a.term = b.term and a.docid != b.docid
+--group by a.docid
+--order by mCount desc
 
 --select a.docid,  a.term, a.count
 --from frequency a
