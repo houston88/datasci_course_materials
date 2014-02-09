@@ -175,11 +175,29 @@ def main():
     happiestState = 'UNKN'
     for stateVal in state_hapiness:
         hapinness = state_hapiness[stateVal]
-        #print stateVal + ' ' + str(state_hapiness[stateVal])
+        print stateVal + ' ' + str(state_hapiness[stateVal])
         if hapinness > happiestVal:
             happiestState = stateVal
             happiestVal = hapinness
-    print happiestState
+    #this would just print out happiest
+    #print happiestState
+    
+    #print '\nCan we order and get top 10?'
+    
+    # lets try and print out 10 happiest states in order, in json
+    count = 1
+    topTen = []
+    for w in sorted(state_hapiness, key=state_hapiness.get, reverse=True):
+        print w, float(state_hapiness[w])
+        # Lets just save a numbered list
+        topTen.append({'state':w,'rank':count})
+        count += 1
+        if count > 10:
+            break
+
+    with open('10_happiest_states.json', 'w') as outfile:
+      json.dump(topTen, outfile)
+    
             
 
 if __name__ == '__main__':

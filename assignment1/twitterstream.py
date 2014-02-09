@@ -42,11 +42,11 @@ def twitterreq(url, method, parameters):
     url = req.to_url()
 
   # add proxy for work...
-  https_proxy = urllib.ProxyHandler({'https':'http://proxy.ext.ray.com:80'})
-  opener = urllib.build_opener(https_proxy)
+  #https_proxy = urllib.ProxyHandler({'https':'http://proxy.ext.ray.com:80'})
+  #opener = urllib.build_opener(https_proxy)
 
   # Uncomment following line to use original opener
-  #opener = urllib.OpenerDirector()
+  opener = urllib.OpenerDirector()
   opener.add_handler(http_handler)
   opener.add_handler(https_handler)
 
